@@ -10,7 +10,7 @@
 int main(int argc, char **argv)
 {
     cmdline::parser cmdline_parser;
-    cmdline_parser.add<std::string>("file", "f", "touch file path", true, "");
+    cmdline_parser.add<std::string>("file", "f", "touch file path", false, "");
     cmdline_parser.add<std::string>("template", "t", "touch file format template", false, "");
     cmdline_parser.add("format_help", "fp", "write format template file help");
     cmdline_parser.parse_check(argc, argv);
@@ -31,9 +31,12 @@ int main(int argc, char **argv)
     }
     template_name = std::string(getenv("HOME")) + DEFAULT_PATH + template_name;
     std::string result;
+    std::vector<std::string> string_list;
+    std::map<std::string, std::string> string_map;
+    string_map[FILENAME] = get_filename(filename);
     try
     {
-        parse_format_file(template_name, result);
+        parse_format_file(template_name, string_list, string_map, result);
     }
     catch (const format_exception& e)
     {

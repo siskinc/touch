@@ -10,6 +10,7 @@ std::string format_help = "-------------------------\n"
                           "HOUR: -\n"
                           "MINUTE: -\n"
                           "SECOND: -\n"
+                          "FILENAME: -\n"
                           "--------------------------\n";
 
 void print_format_help()

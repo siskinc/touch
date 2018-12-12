@@ -8,15 +8,16 @@
 #include <sstream>
 #include "format.hpp"
 
-#define YEAR    "YEAR"
-#define MONTH   "MONTH"
-#define DAY     "DAY"
-#define HOUR    "HOUR"
-#define MINUTE  "MINUTE"
-#define SECOND  "SECOND"
-#define TIME    "TIME"
-#define DATE    "DATE"
-#define USER    "USER"
+#define YEAR        "YEAR"
+#define MONTH       "MONTH"
+#define DAY         "DAY"
+#define HOUR        "HOUR"
+#define MINUTE      "MINUTE"
+#define SECOND      "SECOND"
+#define TIME        "TIME"
+#define DATE        "DATE"
+#define USER        "USER"
+#define FILENAME    "FILENAME"
 
 #define FIELDS { YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, TIME, DATE, USER }
 #define FIELD_VALUES { year, month, day, hour, minute, second, date, ltime, user }
@@ -25,12 +26,10 @@
  ** filename: template filename
  ** result: format result string
 */
-void parse_format_file(std::string& filename, std::string &result)
+void parse_format_file(std::string &filename, std::vector<std::string> &string_list, std::map<std::string, std::string> &string_map, std::string &result)
 {
     if(filename == "")
         return;
-    std::vector<std::string> string_list;
-    std::map<std::string, std::string> string_map;
     std::stringstream strbuff;
     time_t now  = time(0);
     tm  *ltm    = localtime(&now);
