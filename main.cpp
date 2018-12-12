@@ -30,7 +30,7 @@ int main(int argc, char **argv)
         std::cerr << "filename is invalid" << std::endl;
     }
     template_name = std::string(getenv("HOME")) + DEFAULT_PATH + template_name;
-    std::string result;
+    std::string result = "";
     std::vector<std::string> string_list;
     std::map<std::string, std::string> string_map;
     string_map[FILENAME] = get_filename(filename);

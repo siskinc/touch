@@ -20,7 +20,7 @@
 #define FILENAME    "FILENAME"
 
 #define FIELDS { YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, TIME, DATE, USER }
-#define FIELD_VALUES { year, month, day, hour, minute, second, date, ltime, user }
+#define FIELD_VALUES { year, month, day, hour, minute, second, ltime, date, user }
 
 /*
  ** filename: template filename
@@ -59,9 +59,7 @@ void parse_format_file(std::string &filename, std::vector<std::string> &string_l
     std::ifstream fin(filename);
     if(!fin)
     {
-        char buff[64];
-        sprintf(buff, "Filename %s not exist, please input a valid filename.", filename.c_str());
-        throw format_exception(buff);
+        return;
     }
     std::string line;
     while(!fin.eof())
