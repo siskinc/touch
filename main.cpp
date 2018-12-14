@@ -28,6 +28,7 @@ int main(int argc, char **argv)
     if(template_name == "")
     {
         std::cerr << "filename is invalid" << std::endl;
+        return -1;
     }
     template_name = std::string(getenv("HOME")) + DEFAULT_PATH + template_name;
     std::string result = "";
