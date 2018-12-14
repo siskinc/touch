@@ -16,10 +16,14 @@ int main(int argc, char **argv)
     cmdline_parser.parse_check(argc, argv);
     auto filename = cmdline_parser.get<std::string>("file");
     auto template_name = cmdline_parser.get<std::string>("template");
-    if (cmdline_parser.exist("format_help"))
+    if (cmdline_parser.exist("format_help") || argc < 2)
     {
         print_format_help();
         return 0;
+    }
+    if (argc == 2)
+    {
+        filename = argv[1];
     }
     if (template_name == "")
     {
@@ -46,5 +50,4 @@ int main(int argc, char **argv)
     std::ofstream fout(filename);
     fout << result;
     fout.close();
-    return 0;
 }

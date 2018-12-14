@@ -1,11 +1,8 @@
 # Touch
 
 ## Install
-> git clone https://github.com/siskinc/touch  
+> git clone --recursive https://github.com/siskinc/touch  
   cd touch  
-  rm -rf touch  
-  git clone https://github.com/siskinc/cmdline  
-  cd ..  
   make test  
   make  
   make install_template  
@@ -31,7 +28,7 @@ int main(int argc, char **argv)
 
 ### Result
 > cmd:  
-  touch a.cpp
+  ctouch a.cpp
 
 ```cpp
 /*
